@@ -1,24 +1,35 @@
-import './App.css';
+import React from "react";
+import "./App.css";
+import { ExpenseForm } from "./components/ExpenseForm.tsx";
+import { ExpenseList } from "./components/ExpenseList.tsx";
+import { Summary } from "./components/Summary.tsx";
+import { useLocalStorage } from "./hook/useLocalStorage.ts";
+import type { Expense } from "./types/expense.ts";
 
-function App() {
+export default function App() {
+  const [expenses, setExpenses] = useLocalStorage<Expense[]>("expenses", []);
+
+  const handleAdd = (data: Omit<Expense, "id" | "createdAt">) => {
+    setExpenses((prev) => [
+      ...prev,
+      {
+        id: crypto.randomUUID(),
+        createdAt: new Date().toISOString(),
+        ...data,
+      },
+    ]);
+  };
+
+  const handleDelete = (id: string) => {
+    setExpenses((prev) => prev.filter((e) => e.id !== id));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-       
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="app_title">Expense Tracker</h1>
+      <ExpenseForm onAdd={handleAdd} />
+      <ExpenseList expenses={expenses} onDelete={handleDelete} />
+      <Summary expenses={expenses} />
     </div>
   );
 }
-
-export default App;

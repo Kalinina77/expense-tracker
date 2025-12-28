@@ -1,0 +1,35 @@
+.section{
+    display: flex;
+    flex-direction: column;
+    background: #e5e5e5;
+    padding: 20px 40px;
+    align-items: center;
+}
+
+.subtitle{
+    text-align: center;
+    font-size: 32px;
+    margin: 20px 0px;
+    font-family: sans-serif;
+    background: #385278;
+    color: white;
+    padding: 40px;
+    border-radius: 40px;
+    width: max-content;
+}
+
+.categories{
+    text-align: center;
+    font-size: 32px;
+    margin: 20px 0px;
+    font-family: sans-serif;
+}
+
+.list {
+    margin: 0px 0px 40px 0px;
+}
+
+.list li{
+    font-size: 18px;
+    font-family: sans-serif;
+}

@@ -1,0 +1,41 @@
+.section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 30px;
+    gap: 20px;
+}
+.title {
+    text-align: center;
+    color: #000000;
+    font-size: 36px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+.table {
+	width: 100%;
+	margin-bottom: 20px;
+	border: 1px solid #dddddd;
+	border-collapse: collapse; 
+}
+.table th {
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 10px;
+    background: #184585;
+    color: white;
+    border: 1px solid #dddddd;
+}
+.table td {
+	border: 1px solid #dddddd;
+	padding: 5px;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.text{
+    font-size: 20px;
+    font-family: sans-serif;
+}
