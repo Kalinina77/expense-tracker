@@ -5,6 +5,7 @@ import { ExpenseList } from "./components/ExpenseList.tsx";
 import { Summary } from "./components/Summary.tsx";
 import { useLocalStorage } from "./hook/useLocalStorage.ts";
 import type { Expense } from "./types/expense.ts";
+import { CategoryPieChart } from './components/CategoryPieChart.tsx';
 
 export default function App() {
   const [expenses, setExpenses] = useLocalStorage<Expense[]>("expenses", []);
@@ -30,6 +31,7 @@ export default function App() {
       <ExpenseForm onAdd={handleAdd} />
       <ExpenseList expenses={expenses} onDelete={handleDelete} />
       <Summary expenses={expenses} />
+      <CategoryPieChart expenses={expenses} />
     </div>
   );
 }
